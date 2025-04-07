@@ -26,3 +26,12 @@ API Docs: https://npiregistry.cms.hhs.gov/api-page
 
 Deliverables: Create a private GitHub repo and invite betterrx-developers. The email is developers@betterrx.com the username is [betterrx-developers](https://github.com/betterrx-developers). Reply with an email once complete. Please also include a video demonstrating functionality if Laravel is not used.
 
+# Execution Notes
+Had this running on a VM with Apache 2.4.62 and PHP 8.3.11.
+- ```/var/www/html``` was synlinked to ```repo/public```
+- ```/etc/httpd/conf/httpd.conf``` had ```AllowOveride All``` for ```<Directory /var/www/html>```
+- Things worked. Could probably demo a video or something.
+
+Wasn't too concerned about the frontend, hence Vanilla Javascript.
+
+Thanks for your time.
