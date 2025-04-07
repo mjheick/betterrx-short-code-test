@@ -1,17 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('welcome');
-})->name('home');
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+/* Serving some files */
+Route::get('/', function() {
+	$filename = public_path('frontend.php');
+	require_once($filename);
+	return;
 });
 
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';
+Route::get('/{file}', function ($file) {
+	$filename = public_path($file);
+	if (file_exists($filename)) {
+		return file_get_contents($filename);
+	} else {
+		return abort(404);
+	}
+});
+
+Route::get('/search/{by}/{query}/{page}', function ($by, $query, $page) {
+	
+});
